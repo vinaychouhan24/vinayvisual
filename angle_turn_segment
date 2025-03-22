@@ -1,0 +1,15 @@
+from vinayvisual import angle_turn_segment
+import cv2
+import numpy as np
+#for measuring relative rotation between contours or measure 2d rotation
+#for path1="C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\New folder\angle_turn_segment1.jpg" and path2="C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\New folder\angle_turn_segment2.jpg" and contour indexes 0,0
+rotation_angle,cnt1r,cnt2r=angle_turn_segment(r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\New folder\angle_turn_segment1.jpg",r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\New folder\angle_turn_segment2.jpg",0,0)
+print(rotation_angle)
+image2=np.zeros((600,600,3),np.uint8)
+image=np.zeros((600,600,3),np.uint8)
+cv2.drawContours(image,cnt1r,-1,(255,255,255))
+cv2.drawContours(image2,cnt2r,-1,(255,255,255))
+cv2.imshow('cnt',image)
+cv2.imshow('cnt2',image2)
+
+cv2.waitKey(0)
