@@ -1,0 +1,16 @@
+from vinayvisual import contourfeature_tracking
+import cv2
+import numpy as np
+contour_track=contourfeature_tracking(r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source2_1\contourfeature_tracking.mp4",3,50,150,1000,1,50)
+#track any contour using contour_track
+contourindextobetrack=1
+for i in range(0,len(contour_track)):
+    try:
+        image=np.zeros((600,600,3),np.uint8)
+        cv2.drawContours(image,contour_track[i][contourindextobetrack],-1,(255,255,255),5)
+        cv2.imshow('image',image)
+        cv2.waitKey(1)
+    except:
+        cv2.imshow('image',image)
+        cv2.waitKey(1)
+cv2.destroyAllWindows()
