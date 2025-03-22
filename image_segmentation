@@ -1,0 +1,3 @@
+# for segmentation of image based on colours
+from vinayvisual import image_segmentation
+image_segmentation(r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\imagesegmentation.jpg")
