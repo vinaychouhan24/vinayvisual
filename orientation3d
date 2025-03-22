@@ -1,0 +1,21 @@
+from vinayvisual import orientation3d
+import cv2
+import numpy as np
+
+axis,indexes,rotation_contour_time,contour_track=orientation3d(r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source2_1\orientation3d.mp4",3,50,150,1000,1,100)
+print(indexes)
+#track rotation angle and contour using rotation_contour_time and contour_track
+contourindextobetrack=1
+contourindextobetrack=indexes[contourindextobetrack]
+for i in range(0,len(contour_track)):
+    try:
+        image=np.zeros((600,600,3),np.uint8)
+        cv2.drawContours(image,contour_track[i][contourindextobetrack],-1,(255,255,255),5)
+        cv2.imshow('image',image)
+        cv2.waitKey(1)
+    except:
+        cv2.imshow('image',image)
+        cv2.waitKey(1)
+print(axis)
+print(rotation_contour_time[contourindextobetrack])
+cv2.destroyAllWindows()
