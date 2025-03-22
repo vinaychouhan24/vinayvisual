@@ -1,0 +1,15 @@
+from vinayvisual import contour_similarates
+import cv2
+import numpy as np
+#less difference more similarity
+#magnificationfactor define relative size of both contours
+#contour indexes are 3,3 from image path1= r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\contour_similarates.jpg" and path2=r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\contour_similarates.jpg"
+magnificationfactor,lengthr,difference,rcnt1,rcnt2=contour_similarates(r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\contour_similarates.jpg",r"C:\Users\vinay\Desktop\final folder for all software\image_video_audio_source\source1\contour_similarates.jpg",3,3)
+print(difference,magnificationfactor)
+image=np.zeros((600,600,3),np.uint8)
+image2=np.zeros((600,600,3),np.uint8)
+cv2.drawContours(image,rcnt1,-1,(255,255,255))
+cv2.drawContours(image2,rcnt2,-1,(255,255,255))
+cv2.imshow('cnt',image)
+cv2.imshow('cnt2',image2)
+cv2.waitKey(0)
